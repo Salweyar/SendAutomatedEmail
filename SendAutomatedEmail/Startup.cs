@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SendAutomatedEmail.Interfaces;
+using SendAutomatedEmail.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,7 +58,7 @@ namespace SendAutomatedEmail
 
             //Important - Register your appkication entry point
             services.AddSingleton<IAppHost, AppHost>();
-            //services.AddScoped<>();
+            services.AddScoped<IEmailHandler, EmailHandler>();
 
             return services;
         }
